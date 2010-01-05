@@ -1,0 +1,1 @@
+50	5	5	4	0	3000	1000	false	false	e6da1e 	 replication 0 	44	124.5999999999972	452	3	3

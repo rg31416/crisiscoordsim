@@ -1,0 +1,2 @@
+Houses	Vehic	Civils	Firemen	BackupF	Medics	BackupM	Timeout	CycleT	Assign	Treatm	Replication	Seed	ResponseTime	Messages	Victims	Assisted
+3	10	50	5	4	5	0	5000	1000	true	ee7cee 	 replication 0 	55	166.39999999999483	255	5	5

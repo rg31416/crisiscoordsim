@@ -1,0 +1,1 @@
+[nl.tudelft.simulation.dsol.experiment.Treatment@1e55d39 ; Wed Sep 01 00:00:00 CEST 2004 ; minutes ; warmup=0.0 ; runLength=500.0]	nl.tudelft.simulation.dsol.experiment.Replication@14b525c ; replication 0 ; streams=[class nl.tudelft.simulation.jstats.streams.MersenneTwister[55] ]	131.6999999999968	172	0	0

@@ -1,0 +1,44 @@
+Number of houses: 3
+Number of vehicles: 10
+Number of civilians: 100
+Number of firemen: 5
+Number of backup firemen: 4
+Number of medics: 4
+Number of backup medics: 0
+Number of fire officers: 1
+Number of medical officers: 1
+TreatmentID	Replication	Seed	ResponseTime	Messages	Victims	Assisted
+1c82208 	 replication 0 	55	99.8999999999986	82	0	0
+Number of houses: 3
+Number of vehicles: 10
+Number of civilians: 100
+Number of firemen: 5
+Number of backup firemen: 4
+Number of medics: 4
+Number of backup medics: 0
+Number of fire officers: 1
+Number of medical officers: 1
+TreatmentID	Replication	Seed	ResponseTime	Messages	Victims	Assisted
+1c82208 	 replication 1 	44	49.700000000000436	31	0	0
+Number of houses: 3
+Number of vehicles: 10
+Number of civilians: 100
+Number of firemen: 5
+Number of backup firemen: 4
+Number of medics: 4
+Number of backup medics: 0
+Number of fire officers: 1
+Number of medical officers: 1
+TreatmentID	Replication	Seed	ResponseTime	Messages	Victims	Assisted
+1c82208 	 replication 2 	22	73.4000000000001	20	0	0
+Number of houses: 3
+Number of vehicles: 10
+Number of civilians: 100
+Number of firemen: 5
+Number of backup firemen: 4
+Number of medics: 4
+Number of backup medics: 0
+Number of fire officers: 1
+Number of medical officers: 1
+TreatmentID	Replication	Seed	ResponseTime	Messages	Victims	Assisted
+1c82208 	 replication 3 	66	50.50000000000045	21	0	0

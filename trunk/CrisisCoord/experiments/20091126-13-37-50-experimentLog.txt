@@ -1,0 +1,2 @@
+Houses	Vehic	Civils	Firemen	BackupF	Medics	BackupM	Timeout	CycleT	Assign	Treatm	Replication	Seed	ResponseTime	Messages	Victims	Fatalities
+3	10	100	5	4	5	0	3000	1000	false	d14192 	 replication 0 	55	151.69999999999567	762	15	7

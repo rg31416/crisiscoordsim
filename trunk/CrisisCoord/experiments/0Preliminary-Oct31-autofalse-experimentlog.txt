@@ -1,0 +1,16 @@
+Treatment@9008d7	Replication@1e18c90	replication 1	MersenneTwister[88]	128.299.999.999.997	59
+Treatment@9fa12f	Replication@14d8a08	replication 0	MersenneTwister[99]	11.509.999.999.999.700	153
+Treatment@9fa12f	Replication@1d8e0f3	replication 1	MersenneTwister[88]	10.929.999.999.999.800	148
+Treatment@1291479	Replication@1ff48d8	replication 0	MersenneTwister[99]	13.969.999.999.999.600	205
+Treatment@1291479 	Replication@830624	replication 1	MersenneTwister[88]	893.999.999.999.992	89
+Treatment@1291479	Replication@404629	replication 2	MersenneTwister[77]	11.959.999.999.999.700	18
+Treatment@1291479 	Replication@bd1232	replication 3	MersenneTwister[66]	15.939.999.999.999.500	74
+Treatment@1f33bb0 	Replication@13244cd	replication 0	MersenneTwister[99]	16.389.999.999.999.400	25
+Treatment@1d56bbe	Replication@71d29a	replication 0	MersenneTwister[99]	998.999.999.999.986	80
+Treatment@1d56bbe 	Replication@123663b	replication 1	MersenneTwister[88]	8.959.999.999.999.910	26
+Treatment@1a15597 	Replication@ae7b77	replication 0	MersenneTwister[98]	11.869.999.999.999.700	172
+Treatment@1a15597	Replication@ae7b77	replication 0	MersenneTwister[98]	128.499.999.999.997	202
+Treatment@1a15597	Replication@ae7b77	replication 0	MersenneTwister[98]	12.859.999.999.999.600	212
+Treatment@9f784d	Replication@1ac1adf	replication 0	MersenneTwister[98]	24.929.999.999.999.000	106
+Treatment@9f784d	Replication@22023a	replication 2	MersenneTwister[22]	10.839.999.999.999.800	112
+Treatment@11da53	Replication@4589eb	replication 0	MersenneTwister[55]	1.968.999.999.999.930	49

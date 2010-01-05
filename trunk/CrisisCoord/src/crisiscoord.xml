@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dsol:experimentalFrame 
+	xmlns:dsol="http://www.simulation.tudelft.nl"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<experiment>
+	  <model>
+		   <model-class>nl.tudelft.simulation.crisiscoord.CrisisCoordModel</model-class>
+	  </model>
+	  		<simulator-class>nl.tudelft.simulation.dsol.simulators.DEVSSimulator</simulator-class>
+	  <treatment>  
+	    <startTime>2004-09-01T00:00:00</startTime>
+	    <timeUnit>MINUTE</timeUnit> 
+	   	<warmupPeriod  unit="MINUTE">0</warmupPeriod>    
+	   	<runLength unit="MINUTE">500</runLength>
+	   	<properties>
+				<!-- Initial size properties -->
+				<property key="model.size.numcivilians" value="50"/>
+				<property key="model.size.numfiremen" value="5"/>
+				<property key="model.size.numbackupfiremen" value="5"/>
+				<property key="model.size.nummedics" value="4"/>
+				<property key="model.size.numbackupmedics" value="0"/>
+				<property key="model.size.numovd" value="1"/>
+				<property key="model.size.numovdg" value="1"/>
+				<!-- Initial waiting properties -->
+				<property key="model.waiting.responseWaitingTimeout" value="3000"/>
+				<property key="model.waiting.tickerCycleTime" value="1000"/>
+				<!-- Initial coordination properties -->
+				<property key="model.coordination.autoassignment" value="false"/>
+				<property key="model.coordination.mutualadjustment" value="false"/>
+		</properties>
+	   	<replication description="replication 0">
+	    	<stream name="default" seed="44"/>
+	   	</replication>
+	   	<replication description="replication 1">
+	    	<stream name="default" seed="50"/>
+	   	</replication>
+	   	<replication description="replication 2">
+	    	<stream name="default" seed="22"/>
+	   	</replication>
+	   	<replication description="replication 3">
+	    	<stream name="default" seed="66"/>
+	   	</replication>
+	   	<replication description="replication 4">
+	    	<stream name="default" seed="68"/>
+	   	</replication>
+	   	<replication description="replication 5">
+	    	<stream name="default" seed="33"/>
+	   	</replication>
+	   	<replication description="replication 6">
+	    	<stream name="default" seed="11"/>
+	   	</replication>
+	   	<replication description="replication 7">
+	    	<stream name="default" seed="99"/>
+	   	</replication>
+	   	<replication description="replication 8">
+	    	<stream name="default" seed="88"/>
+	   	</replication>
+	   	<replication description="replication 9">
+	    	<stream name="default" seed="98"/>
+	   	</replication>
+	   	<replication description="replication 10">
+	    	<stream name="default" seed="75"/>
+	   	</replication>
+	 </treatment>
+	</experiment>
+</dsol:experimentalFrame>
