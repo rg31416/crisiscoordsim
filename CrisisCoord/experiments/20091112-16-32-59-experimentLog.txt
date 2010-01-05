@@ -1,0 +1,2 @@
+Houses	Vehic	Civils	Firemen	BackupF	Medics	BackupM	Timeout	CycleT	Assign	Treatment	Replication	Seed	ResponseTime	Messages	Victims	Assisted
+3	10	100	4	4	4	0	20	500	true	144c5bb 	 replication 0 	55	71.00000000000024	96	0	0

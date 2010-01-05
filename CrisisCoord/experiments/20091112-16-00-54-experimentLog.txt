@@ -1,0 +1,4 @@
+Houses	Vehic	Civils	Firemen	BackupF	Medics	BackupM	Timeout	CycleT	Assign	Treatment	Replication	Seed	ResponseTime	Messages	Victims	Assisted
+3	10	100	4	4	4	0	50	1000	true	df88d2 	 replication 0 	55	71.8000000000002	45	0	0
+Houses	Vehic	Civils	Firemen	BackupF	Medics	BackupM	Timeout	CycleT	Assign	Treatment	Replication	Seed	ResponseTime	Messages	Victims	Assisted
+3	10	100	4	4	4	0	50	1000	true	df88d2 	 replication 1 	44	59.500000000000576	35	0	0

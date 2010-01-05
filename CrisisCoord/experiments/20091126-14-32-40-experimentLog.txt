@@ -1,0 +1,13 @@
+Houses	Vehic	Civils	Firemen	BackupF	Medics	BackupM	Timeout	CycleT	Assign	Treatm	Replication	Seed	ResponseTime	Messages	Victims	Fatalities
+3	10	100	5	4	5	0	3000	1000	true	1cfb64a 	 replication 0 	55	264.99999999999176	1356	15	14
+Houses	Vehic	Civils	Firemen	BackupF	Medics	BackupM	Timeout	CycleT	Assign	Treatm	Replication	Seed	ResponseTime	Messages	Victims	Fatalities
+3	10	100	5	4	5	0	3000	1000	true	1cfb64a 	 replication 1 	44	277.69999999999465	1600	21	21
+Houses	Vehic	Civils	Firemen	BackupF	Medics	BackupM	Timeout	CycleT	Assign	Treatm	Replication	Seed	ResponseTime	Messages	Victims	Fatalities
+3	10	100	5	4	5	0	3000	1000	true	1cfb64a 	 replication 2 	22	180.49999999999403	881	7	6
+Houses	Vehic	Civils	Firemen	BackupF	Medics	BackupM	Timeout	CycleT	Assign	Treatm	Replication	Seed	ResponseTime	Messages	Victims	Fatalities
+3	10	100	5	4	5	0	3000	1000	true	1cfb64a 	 replication 3 	66	164.69999999999493	786	4	4
+Houses	Vehic	Civils	Firemen	BackupF	Medics	BackupM	Timeout	CycleT	Assign	Treatm	Replication	Seed	ResponseTime	Messages	Victims	Fatalities
+3	10	100	5	4	5	0	3000	1000	true	1cfb64a 	 replication 4 	68	234.49999999999096	1163	10	9
+Houses	Vehic	Civils	Firemen	BackupF	Medics	BackupM	Timeout	CycleT	Assign	Treatm	Replication	Seed	ResponseTime	Messages	Victims	Fatalities
+3	10	100	5	4	5	0	3000	1000	true	1cfb64a 	 replication 5 	33	318.5000000000039	1601	19	17
+Houses	Vehic	Civils	Firemen	BackupF	Medics	BackupM	Timeout	CycleT	Assign	Treatm	Replication	Seed	ResponseTime	Messages	Victims	Fatalities

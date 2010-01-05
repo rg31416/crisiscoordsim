@@ -1,0 +1,2 @@
+Houses	Vehic	Civils	Firemen	BackupF	Medics	BackupM	Timeout	CycleT	Assign	Treatm	Replication	Seed	ResponseTime	Messages	Victims	Assisted
+3	10	100	4	4	4	0	20	500	true	bccade 	 replication 0 	55	75.89999999999996	112	1	1

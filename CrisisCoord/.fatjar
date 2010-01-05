@@ -1,0 +1,14 @@
+#Fat Jar Configuration File
+#Fri May 08 16:02:30 CEST 2009
+onejar.license.required=false
+manifest.classpath=
+manifest.removesigners=true
+onejar.checkbox=true
+jarname=CrisisCoord.jar
+manifest.mergeall=true
+manifest.mainclass=nl.tudelft.simulation.crisiscoord.CrisisCoordApp
+manifest.file=<createnew>
+jarname.isextern=false
+onejar.expand=
+excludes=
+includes=
