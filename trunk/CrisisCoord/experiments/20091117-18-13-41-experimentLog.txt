@@ -1,5 +1,0 @@
-Houses	Vehic	Civils	Firemen	BackupF	Medics	BackupM	Timeout	CycleT	Assign	Treatm	Replication	Seed	ResponseTime	Messages	Victims	Assisted
-3	10	100	5	4	4	0	50	1000	false	6a75ca 	 replication 0 	55	92.799999999999	67	1	1
-Houses	Vehic	Civils	Firemen	BackupF	Medics	BackupM	Timeout	CycleT	Assign	Treatm	Replication	Seed	ResponseTime	Messages	Victims	Assisted
-3	10	100	5	4	4	0	50	1000	false	6a75ca 	 replication 1 	44	124.19999999999722	133	2	2
-Houses	Vehic	Civils	Firemen	BackupF	Medics	BackupM	Timeout	CycleT	Assign	Treatm	Replication	Seed	ResponseTime	Messages	Victims	Assisted

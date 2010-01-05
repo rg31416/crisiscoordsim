@@ -1,3 +1,0 @@
-Houses	Vehic	Civils	Firemen	BackupF	Medics	BackupM	Timeout	CycleT	Assign	Treatm	Replication	Seed	ResponseTime	Messages	Victims	Assisted
-3	10	50	5	4	5	0	5000	1000	false	e95c63 	 replication 0 	55	136.09999999999656	531	8	8
-Houses	Vehic	Civils	Firemen	BackupF	Medics	BackupM	Timeout	CycleT	Assign	Treatm	Replication	Seed	ResponseTime	Messages	Victims	Assisted

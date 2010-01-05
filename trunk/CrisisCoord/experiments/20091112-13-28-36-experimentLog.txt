@@ -1,4 +1,0 @@
-Houses	Vehic	Civils	Firemen	BackupF	Medics	BackupM	Timeout	CycleT	Assign	Replicat	Seed	ResponseTime	Messages	Victims	Assisted
-3	10	100	4	4	4	0	20	1000	true	f1bcde 	 replication 0 	55	100.69999999999855	135	0	0
-Houses	Vehic	Civils	Firemen	BackupF	Medics	BackupM	Timeout	CycleT	Assign	Replicat	Seed	ResponseTime	Messages	Victims	Assisted
-3	10	100	4	4	4	0	20	1000	true	f1bcde 	 replication 1 	44	0.1	0	0	0
