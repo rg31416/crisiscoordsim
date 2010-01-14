@@ -1,5 +1,5 @@
 /*
- * @(#) OfficerAgent.java November 24, 2009
+ * @(#) OfficerAgent.java January 14, 2010
  * 
  * Copyright (c) 2008 Delft University of Technology Jaffalaan 5, 2628 BX
  * Delft, the Netherlands All rights reserved.
@@ -184,13 +184,27 @@ public class OfficerAgent extends ResponseAgent
 			for (int i = 0; i < myRespondersAIDs.length; i++)
 			{
 				querymsg.addReceiver(myRespondersAIDs[i]);
-				CrisisCoordModel.countMessage();
+				if (myRespondersService.contains("Medic"))
+				{
+					CrisisCoordModel.countMessage("medical");
+				}
+				else if (myRespondersService.contains("Fire"))
+				{
+					CrisisCoordModel.countMessage("fire");
+				}
 			}
 			myBackupRespondersAIDs = getMyBackupRespondersAIDs();
 			for (int i = 0; i < myBackupRespondersAIDs.length; i++)
 			{
 				querymsg.addReceiver(myBackupRespondersAIDs[i]);
-				CrisisCoordModel.countMessage();
+				if (myRespondersService.contains("Medic"))
+				{
+					CrisisCoordModel.countMessage("medical");
+				}
+				else if (myRespondersService.contains("Fire"))
+				{
+					CrisisCoordModel.countMessage("fire");
+				}
 			}
 			
 			if (myRespondersAIDs.length > 0)

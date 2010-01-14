@@ -1,5 +1,5 @@
 /*
- * @(#) ResponseAgent.java December 1, 2009
+ * @(#) ResponseAgent.java January 14, 2010
  * 
  * Copyright (c) 2008 Delft University of Technology Jaffalaan 5, 2628 BX
  * Delft, the Netherlands All rights reserved.
@@ -63,7 +63,7 @@ public class ResponseAgent extends ServiceAgent
 	/** On tick interval (time between ticker behaviours) */
 	private int tickerCycleTime; 
 	/** Mutual adjustment rescue */
-	private boolean mutualAdjustment;
+	private boolean autorescue;
 	
 	/** Point of Origin of officer */
 	protected DirectedPoint pointOfOrigin = new DirectedPoint();
@@ -110,12 +110,12 @@ public class ResponseAgent extends ServiceAgent
 	private String assignment = new String();
 	
 	/**
-	 * Get Mutual Adjustment
-	 * @return mutual adjustment if true
+	 * Get Autonomous Rescue value
+	 * @return autonomous rescue (true or false)
 	 */
-	public boolean getMutualAdjustment() 
+	public boolean getAutoRescue() 
 	{
-	    return mutualAdjustment;
+	    return autorescue;
 	} 
 
 	/**
@@ -227,7 +227,7 @@ public class ResponseAgent extends ServiceAgent
 			properties = getDSOLModel().getSimulator().getReplication().getTreatment().getProperties();
 			//this.numCivilians = new Integer(properties.getProperty("model.size.numcivilians"));
 			this.tickerCycleTime = new Integer(properties.getProperty("model.waiting.tickerCycleTime"));
-			this.mutualAdjustment = new Boolean(properties.getProperty("model.coordination.mutualadjustment"));
+			this.autorescue = new Boolean(properties.getProperty("model.coordination.autorescue"));
 		} catch (Exception e)
 		{
 			e.printStackTrace();
@@ -780,10 +780,10 @@ public class ResponseAgent extends ServiceAgent
 					
 					/** only use selected when mutual adjustment false **/
 					/** and in that case add messagecounter */
-					if (!mutualAdjustment)
+					if (!autorescue)
 					{
 						getDSOLModel().getCivilian(chosenVictim).setSelected(true);
-						CrisisCoordModel.countMessage();
+						CrisisCoordModel.countMessage("interdisciplinary");
 					}
 					
 					onEndReturnValue = found;
@@ -941,10 +941,10 @@ public class ResponseAgent extends ServiceAgent
 				        getDSOLModel().getCivilian(chosenVictim).assist();
 				        
 				        /** unselect victims if applicable */
-				        if (!mutualAdjustment)
+				        if (!autorescue)
 						{
 							getDSOLModel().getCivilian(chosenVictim).setSelected(false);
-							CrisisCoordModel.countMessage();
+							CrisisCoordModel.countMessage("interdisciplinary");
 						}
 						
 				        /** Move responder proxy */
@@ -957,10 +957,10 @@ public class ResponseAgent extends ServiceAgent
 						getResponderProxy().setArrived(true);
 						setAgentArrived(true);
 						/** unselect victims if applicable */
-						if (!mutualAdjustment)
+						if (!autorescue)
 						{
 							getDSOLModel().getCivilian(chosenVictim).setSelected(false);
-							CrisisCoordModel.countMessage();
+							CrisisCoordModel.countMessage("interdisciplinary");
 						}
 						chosenVictim = -1;
 					}
@@ -1100,15 +1100,22 @@ public class ResponseAgent extends ServiceAgent
 			         * @param query the query message
 			         * @return the response sent in handleRequest before if at all
 			         */
-					protected ACLMessage prepareResultNotification(final ACLMessage query, final ACLMessage response) 
+					protected ACLMessage prepareResultNotification(final ACLMessage querymsg, final ACLMessage response) 
 					{
-						ACLMessage informReply = query.createReply();
+						ACLMessage informReply = querymsg.createReply();
 						informReply.setPerformative(ACLMessage.INFORM);
 						/** Convert Java objects into strings for the message */
 						try
 						{
 							getContentManager().fillContent(informReply, getAwareness());
-							CrisisCoordModel.countMessage();
+							if (querymsg.getSender().toString().contains("OvDG"))
+							{
+								CrisisCoordModel.countMessage("medical");
+							}
+							else if (querymsg.getSender().toString().contains("OvD"))
+							{
+								CrisisCoordModel.countMessage("fire");
+							}
 						} catch (Exception e)
 						{
 							e.printStackTrace();
@@ -1363,30 +1370,44 @@ public class ResponseAgent extends ServiceAgent
 			         * @param request the query message
 			         * @return the response
 			         */
-			        protected ACLMessage handleRequest(final ACLMessage request) 
+			        protected ACLMessage handleRequest(final ACLMessage requestmsg) 
 			        {
-			        	ACLMessage response = request.createReply();
+			        	ACLMessage response = requestmsg.createReply();
 						ContentElement content = null;
 						Concept actionContent = null;
 		               
 						/** If message is not action, but assignment: Handle assignment request */
-						if (request.getContent().contains("rescueAssigned"))
+						if (requestmsg.getContent().contains("rescueAssigned"))
 						{
 							handleAssignmentRequest(response, content);
-							CrisisCoordModel.countMessage();
+							if (requestmsg.getSender().toString().contains("OvDG"))
+							{
+								CrisisCoordModel.countMessage("medical");
+							}
+							else if (requestmsg.getSender().toString().contains("OvD"))
+							{
+								CrisisCoordModel.countMessage("fire");
+							}
 						} else
 						{
 							/** Convert from String to Java objects (decoding the message) */
 							try
 							{
-								content = myAgent.getContentManager().extractContent(request);
+								content = myAgent.getContentManager().extractContent(requestmsg);
 							} catch (Exception e)
 							{
 								/** if an exception occurs return not understood reply */
 								e.printStackTrace();
 								response.setPerformative(ACLMessage.NOT_UNDERSTOOD);
 								response.setContent("Decoding failed");
-								CrisisCoordModel.countMessage();
+								if (requestmsg.getSender().toString().contains("OvDG"))
+								{
+									CrisisCoordModel.countMessage("medical");
+								}
+								else if (requestmsg.getSender().toString().contains("OvD"))
+								{
+									CrisisCoordModel.countMessage("fire");
+								}
 								return response;
 							}
 							
@@ -1400,12 +1421,26 @@ public class ResponseAgent extends ServiceAgent
 								if (actionContent instanceof Alarm)
 								{
 									handleAlarmRequest(response, actionContent);
-									CrisisCoordModel.countMessage();
+									if (requestmsg.getSender().toString().contains("OvDG"))
+									{
+										CrisisCoordModel.countMessage("medical");
+									}
+									else if (requestmsg.getSender().toString().contains("OvD"))
+									{
+										CrisisCoordModel.countMessage("fire");
+									}
 								}
 							} else /** for all other messages, reply with not understood */ 
 							{
 								response.setPerformative(ACLMessage.NOT_UNDERSTOOD);	
-								CrisisCoordModel.countMessage();
+								if (requestmsg.getSender().toString().contains("OvDG"))
+								{
+									CrisisCoordModel.countMessage("medical");
+								}
+								else if (requestmsg.getSender().toString().contains("OvD"))
+								{
+									CrisisCoordModel.countMessage("fire");
+								}
 							}
 						}
 						return response;

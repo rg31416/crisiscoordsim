@@ -1,5 +1,5 @@
 /*
- * @(#) Medic.java December 1, 2009
+ * @(#) Medic.java January 14, 2010
  * 
  * Copyright (c) 2008 Delft University of Technology Jaffalaan 5, 2628 BX
  * Delft, the Netherlands All rights reserved.
@@ -288,7 +288,7 @@ public class Medic extends ResponseAgent
 	public int searchVictim() 
 	{
 		// if mutual adjustment is false, then follow regular search, otherwise, far from fire
-		if (!getMutualAdjustment())
+		if (!getAutoRescue())
 		{
 			return super.searchVictim();
 		}

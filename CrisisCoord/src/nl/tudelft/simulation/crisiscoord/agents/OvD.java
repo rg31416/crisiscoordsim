@@ -345,7 +345,7 @@ public class OvD extends OfficerAgent
 					for (int i = 0; i < peerOfficersAIDs.length; i++)
 					{
 							proposemsg.addReceiver(peerOfficersAIDs[i]);
-							CrisisCoordModel.countMessage();
+							CrisisCoordModel.countMessage("interdisciplinary");
 					}
 				}
 				
@@ -491,7 +491,7 @@ public class OvD extends OfficerAgent
 			for (int i = 0; i < peerOfficersAIDs.length; i++)
 			{
 					proposemsg.addReceiver(peerOfficersAIDs[i]);
-					CrisisCoordModel.countMessage();
+					CrisisCoordModel.countMessage("interdisciplinary");
 			}
 			
 			if (peerOfficersAIDs.length > 0)
@@ -631,7 +631,7 @@ public class OvD extends OfficerAgent
 			for (int i = 0; i < peerOfficersAIDs.length; i++)
 			{
 					proposemsg.addReceiver(peerOfficersAIDs[i]);
-					CrisisCoordModel.countMessage();
+					CrisisCoordModel.countMessage("interdisciplinary");
 			}
 			
 			if (peerOfficersAIDs.length > 0)
@@ -792,7 +792,7 @@ public class OvD extends OfficerAgent
 				for (int i = 0; i < assignedRescue; i++)
 				{
 					requestmsg.addReceiver(myRespondersAIDs[i]);
-					CrisisCoordModel.countMessage();
+					CrisisCoordModel.countMessage("fire");
 				}
 				
 				if (assignedRescue > 0)

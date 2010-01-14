@@ -1,5 +1,5 @@
 /*
- * @(#) CrisisCoordModel.java November 29, 2009
+ * @(#) CrisisCoordModel.java January 14, 2010
  * 
  * Copyright (c) 2008 Delft University of Technology Jaffalaan 5, 2628 BX
  * Delft, the Netherlands All rights reserved.
@@ -160,14 +160,10 @@ public class CrisisCoordModel extends ServiceAgent implements ModelInterface
 	private int numOvD;
 	/** Number of OvD-Gs */
 	private int numOvDG;
-	/** Timeout for waiting for responses */
-	private int timeout;
-	/** Cycle time for agents */
-	private int cycleT;
-	/** Auto assignment boolean property */
-	private String auto = new String();
-	/** Assist mutual adjustment boolean property */
-	private String mutualAdjustment = new String();
+	/** Firemen assignment boolean property (true is autonomous, false is mediated) */
+	private String autoassignment = new String();
+	/** Victim rescue boolean property (true is autonomous, false is mediated) */
+	private String autorescue = new String();
 	
 	/** Vehicle position */
 	public static final int VEHICLE_POS = 30;
@@ -267,8 +263,12 @@ public class CrisisCoordModel extends ServiceAgent implements ModelInterface
 	/** Reference to the DSOL model */
 	protected CrisisCoordModel modelref;
 	
-	/** Static counter for recording msgs exchanged by agents */
-	private static int messageCounter = 0;
+	/** Static counter for recording intradisciplinary msgs exchanged by fire responders */
+	private static int fireIntradisciplinaryMsgCount = 0;
+	/** Static counter for recording intradisciplinary msgs exchanged by medical responders */
+	private static int medicalIntradisciplinaryMsgCount = 0;
+	/** Static counter for recording interdisciplinary msgs exchanged by agents */
+	private static int interdisciplinaryMsgCount = 0;
 	/** Static counter for recording number of victims */
 	private static int victimCounter = 0;
 	/** Static counter for recording number of assisted victims */
@@ -815,7 +815,7 @@ public class CrisisCoordModel extends ServiceAgent implements ModelInterface
 	public void resetObjects() 
 	{
 		/** Reset vehicles */
-		try
+		try 
 		{
     		for (int i = 0; this.vehicles != null && i < vehicles.length; i++)
 		    {
@@ -953,12 +953,13 @@ public class CrisisCoordModel extends ServiceAgent implements ModelInterface
 	    StaticObject.resetCounter();
 	    AnimatedObject.resetCounter();
 	    ResponderProxy.resetCounter();
-	    CrisisCoordModel.messageCounter = 0;
+	    CrisisCoordModel.fireIntradisciplinaryMsgCount  = 0;
+	    CrisisCoordModel.medicalIntradisciplinaryMsgCount = 0;
+	    CrisisCoordModel.interdisciplinaryMsgCount = 0;
 	    CrisisCoordModel.victimCounter = 0;
 	    CrisisCoordModel.fatalityCounter = 0;
 		informedFire = false;
 		terminated = false;
-		
 		/** Free objects without reference and call garbage colllector */
 		System.gc();
 	} // End of reset method
@@ -978,10 +979,8 @@ public class CrisisCoordModel extends ServiceAgent implements ModelInterface
 			this.numBackupMedics = new Integer(properties.getProperty("model.size.numbackupmedics"));
 			this.numOvD = new Integer(properties.getProperty("model.size.numovd"));
 			this.numOvDG = new Integer(properties.getProperty("model.size.numovdg"));
-			this.timeout = new Integer(properties.getProperty("model.waiting.responseWaitingTimeout"));
-			this.cycleT = new Integer(properties.getProperty("model.waiting.tickerCycleTime"));
-			this.auto = new String(properties.getProperty("model.coordination.autoassignment"));
-			this.mutualAdjustment = new String(properties.getProperty("model.coordination.mutualadjustment"));
+			this.autoassignment = new String(properties.getProperty("model.coordination.autoassignment"));
+			this.autorescue = new String(properties.getProperty("model.coordination.autorescue"));
 		} catch (Exception e)
         {
         	System.err.println ("Error writing to file");
@@ -1028,15 +1027,9 @@ public class CrisisCoordModel extends ServiceAgent implements ModelInterface
             p.append ("\t");
             p.append (Integer.toString(numMedics));
             p.append ("\t");
-            p.append (Integer.toString(numBackupMedics));
+    	    p.append (autoassignment);
             p.append ("\t");
-            p.append (Integer.toString(timeout));
-            p.append ("\t");
-    	    p.append (Integer.toString(cycleT));
-    	    p.append ("\t");
-    	    p.append (auto);
-            p.append ("\t");
-            p.append (mutualAdjustment);
+            p.append (autorescue);
             p.append ("\t");
             
             /** Print treatment ID to file */
@@ -1065,8 +1058,14 @@ public class CrisisCoordModel extends ServiceAgent implements ModelInterface
             // Print time at end (total response time )
             p.append (Double.toString(this.simulator.getSimulatorTime()));
             p.append ("\t");
-            // Print total number of messages exchanged in JADE
-            p.append (Integer.toString(CrisisCoordModel.messageCounter));
+            // Print total number of fire intradisciplinary messages exchanged 
+            p.append (Integer.toString(CrisisCoordModel.fireIntradisciplinaryMsgCount));
+            p.append ("\t");
+            // Print total number of medical intradisciplinarymessages exchanged 
+            p.append (Integer.toString(CrisisCoordModel.medicalIntradisciplinaryMsgCount));
+            p.append ("\t");
+            // Print total number of interdisciplinarymessages exchanged 
+            p.append (Integer.toString(CrisisCoordModel.interdisciplinaryMsgCount));
             p.append ("\t");
             // Print total number of victims
             p.append (Integer.toString(CrisisCoordModel.victimCounter));
@@ -1175,11 +1174,23 @@ public class CrisisCoordModel extends ServiceAgent implements ModelInterface
 
 	/** 
 	 * Count messages sent by agents
+	 * @param messageType indicates type of message
 	 */
-	public static void countMessage()
+	public static void countMessage(final String messageType)
 	{
-		CrisisCoordModel.messageCounter++;
-	}
+		if (messageType.contains("fire"))
+		{
+			CrisisCoordModel.fireIntradisciplinaryMsgCount++;
+		}
+		else if (messageType.contains("medical"))
+		{
+			CrisisCoordModel.medicalIntradisciplinaryMsgCount++;
+		}
+		else if (messageType.contains("inter"))
+		{
+			CrisisCoordModel.interdisciplinaryMsgCount++;
+		}
+	} // end of countMessage method
 	
 	/** 
 	 * Count victims
