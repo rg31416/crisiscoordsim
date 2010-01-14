@@ -15,9 +15,9 @@
 	   	<properties>
 				<!-- Initial size properties -->
 				<property key="model.size.numcivilians" value="50"/>
-				<property key="model.size.numfiremen" value="5"/>
-				<property key="model.size.numbackupfiremen" value="5"/>
-				<property key="model.size.nummedics" value="4"/>
+				<property key="model.size.numfiremen" value="10"/>
+				<property key="model.size.numbackupfiremen" value="10"/>
+				<property key="model.size.nummedics" value="5"/>
 				<property key="model.size.numbackupmedics" value="0"/>
 				<property key="model.size.numovd" value="1"/>
 				<property key="model.size.numovdg" value="1"/>
@@ -26,7 +26,7 @@
 				<property key="model.waiting.tickerCycleTime" value="1000"/>
 				<!-- Initial coordination properties -->
 				<property key="model.coordination.autoassignment" value="false"/>
-				<property key="model.coordination.mutualadjustment" value="false"/>
+				<property key="model.coordination.autorescue" value="true"/>
 		</properties>
 	   	<replication description="replication 0">
 	    	<stream name="default" seed="44"/>

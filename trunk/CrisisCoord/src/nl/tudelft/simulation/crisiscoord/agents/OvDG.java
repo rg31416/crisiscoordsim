@@ -474,7 +474,7 @@ public class OvDG extends OfficerAgent
 							e.printStackTrace();
 							informReply.setPerformative(ACLMessage.NOT_UNDERSTOOD);
 							informReply.setContent("Decoding failed");
-							CrisisCoordModel.countMessage();
+							CrisisCoordModel.countMessage("interdisciplinary");
 							return informReply;
 						}
 						
@@ -488,14 +488,14 @@ public class OvDG extends OfficerAgent
 							if (actionContent instanceof Copi)
 							{
 								handleCopiProposal(informReply, actionContent);
-								CrisisCoordModel.countMessage();
+								CrisisCoordModel.countMessage("interdisciplinary");
 							}
 							
 							/** or handle containment plan proposal */
 							else if (actionContent instanceof Plan)
 							{
 								handlePlanProposal(informReply, actionContent);
-								CrisisCoordModel.countMessage();
+								CrisisCoordModel.countMessage("interdisciplinary");
 							}
 						}
 						
@@ -503,14 +503,14 @@ public class OvDG extends OfficerAgent
 						else if (content != null && content.toString().contains("Awareness"))
 						{
 							handleAwarenessProposal(informReply, content);
-							CrisisCoordModel.countMessage();
+							CrisisCoordModel.countMessage("interdisciplinary");
 						}
 						
 						/** for all other messages, reply with not understood */
 						else 
 						{
 							informReply.setPerformative(ACLMessage.NOT_UNDERSTOOD);	
-							CrisisCoordModel.countMessage();
+							CrisisCoordModel.countMessage("interdisciplinary");
 						}
 						
 						return informReply;
